@@ -1,32 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php ?>
+<?php 
 
-    <form action="apirequest.php" method="POST">
+// Start session 
+session_start();
 
-        <label for='searchbar-un'>Enter a Twitter handle
-        <input type='text' name='searchbar-un' placeholder="@realDonaldTrump">
-        </label>
-        <br></br>
-        <label>How many tweets would you like to analyze? 
-        <select name="searchbar-nm"> 
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-        </select> 
+//Require TwitterOAuth library 
 
-        <input type="submit" name="search">
-        </label>
-    </form>
-</body>
-</html>
+require "twitteroauth/autoload.php";
+
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+//Authentication variables 
+
+// Our config file contains constants for our consumer key and consumer secret key 
+
+require 'config.php';
+
+// Create variables for: 
+// OAuth access token, and access token secret
+
+$access_token='1306362620967096324-EskIU2jNCQWDBox8axiRKyiPoDonkt';
+$access_token_secret='HgUeFk4aw26P1YwdSiNZ4tZ3MQNshBjvGI4M9tmB4YuhX';
+
+// Begin making API requests
+
+function returnToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret){
+    $twitter = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
+    return $twitter; 
+}
+
+$twitter = returnToken(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+
+// Make an API request to get # tweets from $username's timeline
+
+$username = "@realDonaldTrump"; // Whomever
+
+$numtweets=100; // Number of tweets to be analyzed
+
+// Tweets returns an array of objects, some of which 
+// contain further arrays and or objects
+// The get method makes GET HTTP requests to Twitter's API
+
+$tweets=$twitter->get('statuses/user_timeline', ['screen_name' => "$username", 'count' => $numtweets, "exclude_replies" => 1]);
+
+// Store in JSON file 
+
+$json = json_encode($tweets);
+
+file_put_contents("data.json", $json);
+
+?>

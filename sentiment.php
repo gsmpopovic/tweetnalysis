@@ -1,18 +1,13 @@
 <?php 
 
-// Load the PHP Sentiment Analysis library using composer 
-
 require_once('./vendor/autoload.php');
 
 Use Sentiment\Analyzer;
-
 $analyzer = new Analyzer(); 
 
 $object = json_decode(file_get_contents('data.json')); 
 
 foreach($object as $k => $v){
-
-    // For reference as to each tweet's contents, see the dataref.JSON file 
 
     $tweet = $object[$k]->text; 
 
