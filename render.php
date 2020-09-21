@@ -22,11 +22,15 @@ $object=json_decode($json);
 // Iterating over each array item as an object 
 
 foreach($object as $k => $v){
-    echo "<p>".$object[$k]->created_at."</p>";
-    echo "\n \n";
-    echo "<p>".$object[$k]->text."</p>";
-    echo "\n \n";
-    echo "<p>".$object[$k]->user->name."</p>";
+
+    echo "<br>";
+    print_r($object[$k]);
+    echo "<br>";
+    // echo "<p>".$object[$k]->created_at."</p>";
+    // echo "\n \n";
+    // echo "<p>".$object[$k]->text."</p>";
+    // echo "\n \n";
+    // echo "<p>".$object[$k]->user->name."</p>";
 }
 
 ?>
