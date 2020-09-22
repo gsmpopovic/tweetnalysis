@@ -50,6 +50,9 @@ foreach($object as $k => $v){
     // Get tweet's author 
     $tweet->author=$object[$k]->user->name; 
 
+    // Get author's twitter handle 
+    $tweet->handle=$object[$k]->user->screen_name; 
+
     // Get location at which tweet created 
     $tweet->location=$object[$k]->user->location; 
 

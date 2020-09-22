@@ -19,6 +19,10 @@ class TweetAnalyzed {
     // Tweet's author 
     public $author = null; 
 
+    // Author's Twitter handle 
+
+    public $handle = null; 
+
     // User's location when tweet created
     public $location = null; 
 
