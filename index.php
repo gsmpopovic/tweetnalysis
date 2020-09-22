@@ -8,14 +8,14 @@
 <body>
     <?php ?>
 
-    <form action="apirequest.php" method="POST">
+    <form action="render.php" method="POST">
 
         <label for='searchbar-un'>Enter a Twitter handle
-        <input type='text' name='searchbar-un' placeholder="@realDonaldTrump">
+        <input type='text' name='searchbar-un' id='searchbar-un' placeholder="@realDonaldTrump">
         </label>
         <br></br>
         <label>How many tweets would you like to analyze? 
-        <select name="searchbar-nm"> 
+        <select name="searchbar-nm" id='searchbar-nm'> 
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
@@ -25,8 +25,9 @@
             <option value="100">100</option>
         </select> 
 
-        <input type="submit" name="search">
+        <input type="submit" name="search" id="submit">
         </label>
     </form>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -8,9 +8,11 @@
 <body>
 <?php 
 
+require_once('sentiment.php');
+
 // Get JSON file
 
-$json = file_get_contents("./data.json");
+$json = file_get_contents("./assets/json/analysis.json");
 
 $object=json_decode($json);
 
@@ -24,7 +26,7 @@ $object=json_decode($json);
 foreach($object as $k => $v){
 
     echo "<br>";
-    print_r($object[$k]);
+    print_r($object->$k);
     echo "<br>";
     // echo "<p>".$object[$k]->created_at."</p>";
     // echo "\n \n";

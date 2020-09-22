@@ -1,4 +1,9 @@
 <?php 
+
+// This functionality is secondary; 
+// All data which results from the user's query will be stored in a JSON file 
+// And persist as long as their session 
+
 // Store in a MySQL database
 
 $host = 'localhost';
