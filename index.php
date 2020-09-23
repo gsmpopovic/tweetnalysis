@@ -11,7 +11,7 @@
     <form action="render.php" method="POST">
 
         <label for='searchbar-un'>Enter a Twitter handle
-        <input type='text' name='searchbar-un' id='searchbar-un' placeholder="@realDonaldTrump">
+        <input type='text' name='searchbar-un' id='searchbar-un' placeholder="@whomever">
         </label>
         <br></br>
         <label>How many tweets would you like to analyze? 

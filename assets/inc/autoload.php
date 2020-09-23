@@ -32,6 +32,7 @@ class TweetAnalyzed {
     public $pos = null;     
     public $neg = null; 
     public $neu = null; 
+    public $compound = null; 
 
     // Most predominant sentiment 
 

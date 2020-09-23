@@ -21,16 +21,6 @@ $analyzer = new Analyzer();
 
 $object = json_decode(file_get_contents('./assets/json/data.json')); 
 
-            // $length = count($object);
-
-            // $positive = 0; 
-            // $negative = 0; 
-            // $neutral = 0; 
-
-            // echo "<br>";
-            // echo "So, I was able to pull $length tweets."; 
-            // echo "<br>";
-
 foreach($object as $k => $v){
 
     // For reference as to each tweet's contents, see the dataref.json 
@@ -60,8 +50,10 @@ foreach($object as $k => $v){
 
     // This returns an associative array in the form of
     // ['neg'=> 0.0, 'neu'=> 0.337, 'pos'=> 0.663, 'compound'=> 0.7096]
-    // Which are percentiles denoting how negative, neutral, positive some text is. 
+    // Which are percentiles denoting how negative, neutral, positive 
+    // the sentiment of some piece of text is. 
     // So: 0% negative; 33.7% neutral; 66.3% positive; 
+
 
     // The Compound score is a metric that calculates the sum of all the lexicon ratings 
     // which have been normalized 
@@ -80,6 +72,8 @@ foreach($object as $k => $v){
     $tweet->neu = $analysis['neu']*100; 
     // Percentage of positive sentiment
     $tweet->pos = $analysis['pos']*100; 
+        // Percentage of compound sentiment
+        $tweet->compound = $analysis['compound']*100; 
     // Overall sentiment 
     // $overall = "This string was, overall, "; 
 
@@ -113,34 +107,5 @@ foreach($object as $k => $v){
         file_put_contents('./assets/json/analysis.json', $json_encode); 
 
     }
-
-
-                // echo "<br>"; 
-                // echo "String at position $k was: $tweet->tweet";
-                // echo "<br>";
-
-                // echo "This string rated at "
-                // . $tweet->neg."% negative, "
-                // .$tweet->neu."% neutral, and "
-                // .$tweet->pos."% positive";
-                // echo "<br>";
-                
-                // if ($tweet->pos > $tweet->neg){
-                //     $positive++; 
-                //     echo $overall .= "positive.";
-                // }
-                
-                // else if ($tweet->neg > $tweet->pos){
-                //     $negative++; 
-                //     echo $overall .= "negative.";
-
-                // }
-
-                // else{
-                //     $neutral++; 
-                //     echo $overall .= "neutral.";
-                // }
-                // echo "<br>";
-
 }
 ?>
