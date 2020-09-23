@@ -17,14 +17,12 @@ if (isset($_POST['search'])) {
 //Authentication variables
 
     // Our config file contains constants for our consumer key and consumer secret key
-
+    // as well as our access token and access token secret
+    
     require './assets/inc/config.php';
 
     // Create variables for:
     // OAuth access token, and access token secret
-
-    $access_token='1306362620967096324-EskIU2jNCQWDBox8axiRKyiPoDonkt';
-    $access_token_secret='HgUeFk4aw26P1YwdSiNZ4tZ3MQNshBjvGI4M9tmB4YuhX';
 
     // Begin making API requests
 
