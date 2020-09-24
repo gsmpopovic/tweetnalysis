@@ -17,11 +17,19 @@ Use Sentiment\Analyzer;
 $analyzer = new Analyzer(); 
 
 // Retrieve tweets from a JSON file 
-// This will return an object that we will then iterate over 
+// This will return an twitter_data that we will then iterate over 
 
-$object = json_decode(file_get_contents('./assets/json/data.json')); 
+$twitter_data = json_decode(file_get_contents('./assets/json/data.json')); 
 
-foreach($object as $k => $v){
+// Create an twitter_data that will store the contents of our JSON file 
+        
+$json = new stdClass();
+
+// Iterate over data retrieved from twitter; 
+// this data consist of twitter_datas containing all information 
+// relevant to a tweet 
+
+foreach($twitter_data as $k => $v){
 
     // For reference as to each tweet's contents, see the dataref.json 
 
@@ -32,19 +40,19 @@ foreach($object as $k => $v){
     $tweet = new TweetAnalyzed();
 
     // Get tweet text
-    $tweet->tweet = $object[$k]->text; 
+    $tweet->tweet = $twitter_data[$k]->text; 
 
     // Get tweet timestamp
-    $tweet->created_at=$object[$k]->created_at; 
+    $tweet->created_at=$twitter_data[$k]->created_at; 
 
     // Get tweet's author 
-    $tweet->author=$object[$k]->user->name; 
+    $tweet->author=$twitter_data[$k]->user->name; 
 
     // Get author's twitter handle 
-    $tweet->handle=$object[$k]->user->screen_name; 
+    $tweet->handle=$twitter_data[$k]->user->screen_name; 
 
     // Get location at which tweet created 
-    $tweet->location=$object[$k]->user->location; 
+    $tweet->location=$twitter_data[$k]->user->location; 
 
     // Perform sentiment analysis
 
@@ -72,40 +80,23 @@ foreach($object as $k => $v){
     $tweet->neu = $analysis['neu']*100; 
     // Percentage of positive sentiment
     $tweet->pos = $analysis['pos']*100; 
-        // Percentage of compound sentiment
-        $tweet->compound = $analysis['compound']*100; 
+    // Percentage of compound sentiment
+    $tweet->compound = $analysis['compound']*100; 
     // Overall sentiment 
-    // $overall = "This string was, overall, "; 
+    //
 
-    // If a JSON file does not exist, create one to hold our tweets that have been
-    // analyzed
+    // Cast index of our loop to string
+    // in order to index our JSON 
+    $key = strval($k); 
 
-    if (!file_exists('./assets/json/analysis.json')){
+    // Set each tweet within our JSON file 
+    $json->$key=$tweet; 
 
-        // Create an array that will store our tweets
-
-        $array = json_encode(array());
-        
-       file_put_contents('./assets/json/analysis.json', $array);
-
-    }
-
-    else{
-
-        // If a file does exist, get its contents in the form of an associative array
-
-        $json_decode=json_decode(file_get_contents('./assets/json/analysis.json'), true);
-
-        // Manually index this array, i.e., setting a key for each tweet as object 
-
-        $json_decode["$k"]=$tweet; 
-        
-        // Encode this and set it back into our JSON file 
-
-        $json_encode = json_encode($json_decode); 
-
-        file_put_contents('./assets/json/analysis.json', $json_encode); 
-
-    }
 }
+
+    // Encode this and set into our JSON file 
+
+    $json = json_encode($json); 
+
+    file_put_contents('./assets/json/analysis.json', $json); 
 ?>
