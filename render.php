@@ -9,7 +9,8 @@
     
 </head>
 <body>
-<?php 
+<input type='hidden' name='formid' value='<?php echo time(); ?>'>
+<?php
 
 require_once('sentiment.php');
 
@@ -37,6 +38,16 @@ foreach($object as $k => $v){
     // echo "\n \n";
     // echo "<p>".$object[$k]->user->name."</p>";
 }
+
+// There's a bug where the app will make a request to Twitter's Api, parse the 
+// returned data, etc., etc., and render it, BUT
+// were the user to navigate back to index.php and select a higher number of tweets, 
+// say, 5 the first time and 10 the second, 
+// 
+    copy('./assets/json/analysis.json', './assets/json/saveanalysis.json');
+    copy('./assets/json/data.json', './assets/json/savedata.json');
+    unlink('./assets/json/analysis.json');
+    unlink('./assets/json/data.json');
 
 ?>
 </body>
