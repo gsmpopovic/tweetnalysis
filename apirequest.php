@@ -34,6 +34,12 @@ if (isset($_POST['search'])) {
 
     $twitter = returnToken(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 
+    if (!$twitter){
+        echo "Couldn't connect to Twitter's API.";
+        echo ":(";
+        die();
+    }
+
     // Make an API request to get # tweets from $username's timeline
 
     // $username = "@realDonaldTrump"; // Whomever
