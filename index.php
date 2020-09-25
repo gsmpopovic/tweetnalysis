@@ -8,7 +8,7 @@
 <body>
     <?php ?>
 
-    <form action="render.php" method="POST">
+    <form action="display.php" method="POST">
 
         <label for='searchbar-un'>Enter a Twitter handle
         <input type='text' name='searchbar-un' id='searchbar-un' placeholder="@whomever">

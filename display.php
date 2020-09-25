@@ -17,26 +17,14 @@
 				
 				<div class="logoarea py-5">
 					<!-- Tweet cards -->
-					<!-- Use AJAX to pull and load these cards dynamically -->				
-				<div class="logoarea py-5">
-					<div class="card my-5">
-						<div class="card-header">
-                            <div><p><a href="#">@TwitterHandle</a> - Author</p></div>  
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Tweet id</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed aperiam provident corrupti esse! Architecto delectus consequuntur quisquam quas modi? Incidunt sit soluta aut amet ullam enim, iusto dicta quaerat ea.</p>
-                        </div>
-                        <div class="card-footer text-muted">created at </div>
-                    </div>
-                    <!-- Tweet cards -->
+				<?php require_once('dynamichtml.php');?>
 				</div>
 			</div>
         </div>
         <!--===============================================================================-->
 		<!-- Second Half -->
 		<div class="col-md-6 p-0 bg-white h-md-100">
-			<div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
+			<div class="d-md-flex h-md-100 p-5 justify-content-center">
 				<div class="card">
 					<div class="card-header">
 						Featured

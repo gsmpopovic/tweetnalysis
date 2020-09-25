@@ -19,7 +19,7 @@ if (isset($_POST['search'])) {
     // Our config file contains constants for our consumer key and consumer secret key
     // as well as our access token and access token secret
     
-    require './assets/inc/config.php';
+    require './config.php';
 
     // Create variables for:
     // OAuth access token, and access token secret
@@ -39,7 +39,7 @@ if (isset($_POST['search'])) {
     }
 
     try {
-        $twitter = returnToken(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+        $twitter = returnToken($cons_key, $cons_secret, $access_token, $access_token_secret);
     }
     catch(Exception $e){
         echo "Caught an issue: " . $e->getMessage();

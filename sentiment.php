@@ -19,9 +19,8 @@ $analyzer = new Analyzer();
 // Retrieve tweets from a JSON file 
 // This will return an object that we will then iterate over 
 
-$object = json_decode(file_get_contents('./assets/json/data.json')); 
+$twitter_data = json_decode(file_get_contents('./assets/json/data.json')); 
 
-<<<<<<< HEAD
 // Create an twitter_data that will store the contents of our JSON file 
         
 $json = new stdClass();
@@ -31,9 +30,6 @@ $json = new stdClass();
 // relevant to a tweet 
 
     foreach($twitter_data as $k => $v){
-=======
-foreach($object as $k => $v){
->>>>>>> parent of 17c74c6... Fixed the bug but redacted code which allowed for data persistence
 
         // For reference as to each tweet's contents, see the dataref.json 
 
@@ -43,7 +39,6 @@ foreach($object as $k => $v){
 
         $tweet = new TweetAnalyzed();
 
-<<<<<<< HEAD
         // Get tweet text
         $tweet->tweet = $twitter_data[$k]->text; 
 
@@ -58,22 +53,6 @@ foreach($object as $k => $v){
 
         // Get location at which tweet created 
         $tweet->location=$twitter_data[$k]->user->location; 
-=======
-    // Get tweet text
-    $tweet->tweet = $object[$k]->text; 
-
-    // Get tweet timestamp
-    $tweet->created_at=$object[$k]->created_at; 
-
-    // Get tweet's author 
-    $tweet->author=$object[$k]->user->name; 
-
-    // Get author's twitter handle 
-    $tweet->handle=$object[$k]->user->screen_name; 
-
-    // Get location at which tweet created 
-    $tweet->location=$object[$k]->user->location; 
->>>>>>> parent of 17c74c6... Fixed the bug but redacted code which allowed for data persistence
 
         // Perform sentiment analysis
 
@@ -95,7 +74,6 @@ foreach($object as $k => $v){
 
         $analysis = $analyzer->getSentiment($tweet->tweet);
 
-<<<<<<< HEAD
         // Percentage of negative sentiment 
         $tweet->neg = $analysis['neg']*100;
         // Percentage of neutral sentiment
@@ -114,53 +92,13 @@ foreach($object as $k => $v){
         // Set each tweet within our JSON file 
         $json->$key=$tweet; 
 
-=======
-    // Percentage of negative sentiment 
-    $tweet->neg = $analysis['neg']*100;
-    // Percentage of neutral sentiment
-    $tweet->neu = $analysis['neu']*100; 
-    // Percentage of positive sentiment
-    $tweet->pos = $analysis['pos']*100; 
-        // Percentage of compound sentiment
-        $tweet->compound = $analysis['compound']*100; 
-    // Overall sentiment 
-    // $overall = "This string was, overall, "; 
-
-    // If a JSON file does not exist, create one to hold our tweets that have been
-    // analyzed
-
-    if (!file_exists('./assets/json/analysis.json')){
-
-        // Create an array that will store our tweets
-
-        $array = json_encode(array());
-        
-       file_put_contents('./assets/json/analysis.json', $array);
-
->>>>>>> parent of 17c74c6... Fixed the bug but redacted code which allowed for data persistence
     }
 
-    else{
-
-        // If a file does exist, get its contents in the form of an associative array
-
-<<<<<<< HEAD
-    file_put_contents('./assets/json/analysis.json', $json); 
-
-=======
-        $json_decode=json_decode(file_get_contents('./assets/json/analysis.json'), true);
-
-        // Manually index this array, i.e., setting a key for each tweet as object 
-
-        $json_decode["$k"]=$tweet; 
-        
         // Encode this and set it back into our JSON file 
 
-        $json_encode = json_encode($json_decode); 
+        $json = json_encode($json); 
 
-        file_put_contents('./assets/json/analysis.json', $json_encode); 
+        file_put_contents('./assets/json/analysis.json', $json); 
 
-    }
-}
->>>>>>> parent of 17c74c6... Fixed the bug but redacted code which allowed for data persistence
+    
 ?>
