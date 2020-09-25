@@ -18,6 +18,7 @@
 				<div class="logoarea py-5">
 					<!-- Tweet cards -->
 					<!-- Use AJAX to pull and load these cards dynamically -->				
+				<div class="logoarea py-5">
 					<div class="card my-5">
 						<div class="card-header">
                             <div><p><a href="#">@TwitterHandle</a> - Author</p></div>  
