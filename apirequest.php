@@ -29,15 +29,20 @@ if (isset($_POST['search'])) {
     function returnToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret)
     {
         $twitter = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
-        return $twitter;
+
+        if (!$twitter){
+            throw new Exception ("Can't connect to Twitter's API."); 
+            die();
+        }else{
+            return $twitter;
+        }
     }
 
-    $twitter = returnToken(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
-
-    if (!$twitter){
-        echo "Couldn't connect to Twitter's API.";
-        echo ":(";
-        die();
+    try {
+        $twitter = returnToken(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
+    }
+    catch(Exception $e){
+        echo "Caught an issue: " . $e->getMessage();
     }
 
     // Make an API request to get # tweets from $username's timeline
@@ -55,8 +60,7 @@ if (isset($_POST['search'])) {
     // contain further arrays and or objects
     // The get method makes GET HTTP requests to Twitter's API
 
-    $tweets=$twitter->get('statuses/user_timeline', ['screen_name' => "$username", 'count' => $numtweets, "exclude_replies" => 1]);
-
+        $tweets=$twitter->get('statuses/user_timeline', ['screen_name' => "$username", 'count' => $numtweets, "exclude_replies" => 1]);
     // Store in JSON file
 
     // Notice: As of 09/20/20
