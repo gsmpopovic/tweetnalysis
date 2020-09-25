@@ -42,20 +42,12 @@ foreach($object as $k => $v){
 // There's a bug where the app will make a request to Twitter's Api, parse the 
 // returned data, etc., etc., and render it, BUT
 // were the user to navigate back to index.php and select a higher number of tweets, 
-// say, 5 the first time and 10 the second, data.json/analysis will contain 10 tweets
-// but were the user to navigate back and select 5, 
-// the app will render 10 instead of five 
-
-
-// Temporary fix 
-
-// Copy files into different destinations to save them 
-    // copy('./assets/json/analysis.json', './assets/json/saveanalysis.json');
-    // copy('./assets/json/data.json', './assets/json/savedata.json');
-
-// Delete the original files so that the user can start over
-    // unlink('./assets/json/analysis.json');
-    // unlink('./assets/json/data.json');
+// say, 5 the first time and 10 the second, 
+// 
+    copy('./assets/json/analysis.json', './assets/json/saveanalysis.json');
+    copy('./assets/json/data.json', './assets/json/savedata.json');
+    unlink('./assets/json/analysis.json');
+    unlink('./assets/json/data.json');
 
 ?>
 </body>
