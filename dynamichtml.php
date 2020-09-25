@@ -30,10 +30,22 @@ foreach($tweets as $k => $v){
 	$handle = $tweets->$k->handle; 
 	$text = $tweets->$k->tweet;
 	$author = $tweets->$k->author;
+
+	$pos = $tweets->$k->pos;
+	$neg = $tweets->$k->neg;
+	$neu = $tweets->$k->neu;
+	$compound = $tweets->$k->compound;
+
+
 	echo <<<EOT
 	<div class="card mb-5">
 	<div class="card-header">
 		<div><p><a href="#">@$handle</a> - $author </p></div>  
+	</div>
+	<div class="card-header">
+		<div>
+		<p>Positive sentiment: $pos% - Neutral sentiment: $neu% - Negative sentiment: $neg%</p>
+		</div>  
 	</div>
 	<div class="card-body">
 		<h5 class="card-title">Tweet id: $k</h5>
