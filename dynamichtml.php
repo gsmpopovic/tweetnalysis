@@ -6,27 +6,41 @@ require_once('sentiment.php');
 
 $json = file_get_contents("./assets/json/analysis.json");
 
-$object=json_decode($json);
+$tweets=json_decode($json);
 
-// The important keys/properties associated with these tweets are:
-// 'created_at' (located in the initial object)
-// 'text' (ditto)
-// 'name' (located in the first object, located in the user object)
+// For reference, an entry in our JSON file looks like this: 
 
-// Iterating over each array item as an object 
+// "0": {
+// 	"tweet": "RT @thebradfordfile: No journalist has ever asked Barack Hussein Obama to explain how the Trump campaign was spied on and General Flynn was\u2026",
+// 	"created_at": "Fri Sep 25 14:13:10 +0000 2020",
+// 	"author": "Donald J. Trump",
+// 	"handle": "realDonaldTrump",
+// 	"location": "Washington, DC",
+// 	"pos": 0,
+// 	"neg": 9.1,
+// 	"neu": 90.9,
+// 	"compound": -29.599999999999998,
+// 	"overall": null
+// }
 
-foreach($object as $k => $v){
+foreach($tweets as $k => $v){
 
+	$created = $tweets->$k->created_at;
+	$location = $tweets->$k->location; 
+	$handle = $tweets->$k->handle; 
+	$text = $tweets->$k->tweet;
+	$author = $tweets->$k->author;
 	echo <<<EOT
-	<div class="card my-5">
+	<div class="card mb-5">
 	<div class="card-header">
-		<div><p><a href="#">@TwitterHandle</a> - Author</p></div>  
+		<div><p><a href="#">@$handle</a> - $author </p></div>  
 	</div>
 	<div class="card-body">
-		<h5 class="card-title">Tweet id</h5>
-		<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed aperiam provident corrupti esse! Architecto delectus consequuntur quisquam quas modi? Incidunt sit soluta aut amet ullam enim, iusto dicta quaerat ea.</p>
+		<h5 class="card-title">Tweet id: $k</h5>
+		<p class="card-text">$text</p>
 	</div>
-	<div class="card-footer text-muted">created at </div>
+	<div class="card-footer text-muted"> <p>Created at: $created</p>
+	<p>Location: $location</p></div>
 </div>
 EOT; 
 
