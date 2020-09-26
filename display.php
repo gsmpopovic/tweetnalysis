@@ -22,7 +22,7 @@
 				<!-- Ratings card --> 
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title"> <b id="pos">#</b> were rated as positive.</h5>
+						<h5 class="card-title"> <b id="pos">#</b> was/were rated as positive.</h5>
 					</div>
 				</div>
 				<!-- Ratings card --> 
@@ -32,7 +32,7 @@
 				<!-- Ratings card --> 
 				<div class="card">
 					<div class="card-body">
-					<h5 class="card-title"> <b id="neg">#</b> were rated as negative.</h5>
+					<h5 class="card-title"> <b id="neg">#</b> was/were rated as negative.</h5>
 					</div>
 				</div>
 				<!-- Ratings card --> 
@@ -41,7 +41,7 @@
 				<!-- Ratings card --> 
 				<div class="card">
 					<div class="card-body">
-					<h5 class="card-title"> <b id="neu">#</b> were rated as neutral.</h5>
+					<h5 class="card-title"> <b id="neu">#</b> was/were rated as neutral.</h5>
 					</div>
 				</div>
 				<!-- Ratings card --> 
