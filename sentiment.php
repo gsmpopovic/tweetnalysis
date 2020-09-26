@@ -40,7 +40,9 @@ $json = new stdClass();
         $tweet = new TweetAnalyzed();
 
         // Get tweet text
-        $tweet->tweet = $twitter_data[$k]->text; 
+
+        // Twitter recently changed the property of text to full_text (09/25/20)
+        $tweet->tweet = $twitter_data[$k]->full_text; 
 
         // Get tweet timestamp
         $tweet->created_at=$twitter_data[$k]->created_at; 
@@ -83,7 +85,17 @@ $json = new stdClass();
         // Percentage of compound sentiment
         $tweet->compound = $analysis['compound']*100; 
         // Overall sentiment 
-        //
+        
+        if (($tweet->neu > $tweet->neg) && ($tweet->neu > $tweet->pos)){
+            $tweet->overall .= "neutral.";
+        }
+        elseif ($tweet->neg > $tweet->pos){
+            $tweet->overall .= "negative.";
+        }
+
+        elseif ($tweet->pos > $tweet->neg){
+            $tweet->overall .= "positive.";
+        }
 
         // Cast index of our loop to string
         // in order to index our JSON 

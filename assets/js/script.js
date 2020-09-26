@@ -9,5 +9,3 @@ submit_button.addEventListener("click", function() {
         alert("Fill out form fields.");
     }
 });
-
-// AJAX

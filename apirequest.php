@@ -60,7 +60,7 @@ if (isset($_POST['search'])) {
     // contain further arrays and or objects
     // The get method makes GET HTTP requests to Twitter's API
 
-        $tweets=$twitter->get('statuses/user_timeline', ['screen_name' => "$username", 'count' => $numtweets, "exclude_replies" => 1]);
+        $tweets=$twitter->get('statuses/user_timeline', ['tweet_mode'=>'extended','screen_name' => "$username", 'count' => $numtweets, "exclude_replies" => 1]);
     // Store in JSON file
 
     // Notice: As of 09/20/20

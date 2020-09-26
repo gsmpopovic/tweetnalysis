@@ -15,16 +15,14 @@
 		<div class="col-md-6 p-0 bg-white h-md-100 overflow-auto">
 
 		<div class="d-md-flex p-3 justify-content-center">
-<h1> So, I was able to get X tweets.</h1>
+<h1> So, I was able to get <b id = "numTweets">#</b> of <b id="author"></b> tweets.</h1>
 			</div>
 
 			<div class="d-md-flex p-3 justify-content-center">
 				<!-- Ratings card --> 
 				<div class="card">
-					<div class="card-header"> - </div>
 					<div class="card-body">
-						<h5 class="card-title">Special title treatment</h5>
-						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+						<h5 class="card-title"> <b id="pos">#</b> were rated as positive.</h5>
 					</div>
 				</div>
 				<!-- Ratings card --> 
@@ -33,31 +31,21 @@
 			<div class="d-md-flex p-3 justify-content-center">
 				<!-- Ratings card --> 
 				<div class="card">
-					<div class="card-header">
-						Featured
-					</div>
 					<div class="card-body">
-						<h5 class="card-title">Special title treatment</h5>
-						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<h5 class="card-title"> <b id="neg">#</b> were rated as negative.</h5>
 					</div>
 				</div>
 				<!-- Ratings card --> 
 			</div>
-
 			<div class="d-md-flex p-3 justify-content-center">
 				<!-- Ratings card --> 
 				<div class="card">
-					<div class="card-header">
-						Featured
-					</div>
 					<div class="card-body">
-						<h5 class="card-title">Special title treatment</h5>
-						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<h5 class="card-title"> <b id="neu">#</b> were rated as neutral.</h5>
 					</div>
 				</div>
 				<!-- Ratings card --> 
-			</div>
-			
+			</div>		
 		</div>
 
 		<!-- First Half -->
@@ -75,5 +63,6 @@
 		<!-- Second Half -->
 		<!--===============================================================================-->
 	</div>
-</body>
+	<script src='./assets/js/ajax.js'></script>
+	</body>
 </html>

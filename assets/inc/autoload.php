@@ -36,7 +36,7 @@ class TweetAnalyzed {
 
     // Most predominant sentiment 
 
-    public $overall = null; 
+    public $overall = "The sentiment of this tweet was, overall, "; 
 
 }
 

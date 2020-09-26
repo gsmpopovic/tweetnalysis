@@ -35,6 +35,7 @@ foreach($tweets as $k => $v){
 	$neg = $tweets->$k->neg;
 	$neu = $tweets->$k->neu;
 	$compound = $tweets->$k->compound;
+	$overall=$tweets->$k->overall; 
 
 
 	echo <<<EOT
@@ -42,23 +43,21 @@ foreach($tweets as $k => $v){
 	<div class="card-header">
 		<div><p><a href="#">@$handle</a> - $author </p></div>  
 	</div>
-	<div class="card-header">
-		<div>
-		<p>Positive sentiment: $pos% - Neutral sentiment: $neu% - Negative sentiment: $neg%</p>
-		</div>  
-	</div>
 	<div class="card-body">
 		<h5 class="card-title">Tweet id: $k</h5>
 		<p class="card-text">$text</p>
 	</div>
+	<div class="card-header">
+	<div>
+	<h6>Rating:</h6>
+	<p>Positive sentiment: <b>$pos%</b> - Neutral sentiment: <b>$neu%</b> - Negative sentiment: <b>$neg%</b> - Compound sentiment: <b>$compound%</b>.</p> 
+	<p>$overall</p>
+	</div>  
+</div>
 	<div class="card-footer text-muted"> <p>Created at: $created</p>
 	<p>Location: $location</p></div>
 </div>
-EOT; 
-
-    // echo "<br>";
-    // print_r($object->$k);
-    // echo "<br>";
+EOT;
 }
 
 ?>
