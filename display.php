@@ -35,7 +35,7 @@ function parseJSON() {
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
             var json = JSON.parse(request.responseText);
-            var length = Object.keys(json).length;
+			var length = Object.keys(json).length;
 
             // This will display to the user how many tweets were actually scraped
             // from Twitter's API
@@ -66,10 +66,23 @@ function parseJSON() {
             // Alter the HTML that states how many tweets were rated positive,
             // negative, etc.
 
-            document.getElementById("pos").innerHTML = pos;
-            document.getElementById("neg").innerHTML = neg;
-            document.getElementById("neu").innerHTML = neu;
+			document.getElementById("pos").innerHTML = pos;
+			if (pos == 1){
 
+				document.getElementById("poswere").innerHTML = "was";
+
+			}
+			document.getElementById("neg").innerHTML = neg;
+			if (neg == 1){
+				document.getElementById("negwere").innerHTML = "was";
+
+			}
+			document.getElementById("neu").innerHTML = neu;
+			if (neu == 1){
+				document.getElementById("neuwere").innerHTML = "was";
+
+			}
+			
             // Alter the HTML that states the author of the tweets
 
             var author = json[0].author;
@@ -83,6 +96,7 @@ function parseJSON() {
 
 parseJSON();
 </script>
+
 </head>
 <body>
 	<div class="d-md-flex h-md-100 align-items-center">
@@ -91,14 +105,14 @@ parseJSON();
 		<div class="col-md-6 p-0 bg-white h-md-100 overflow-auto">
 
 		<div class="d-md-flex p-3 justify-content-center">
-<h1> So, I was able to get <b id = "numTweets">#</b> of <b id="author"></b> tweets.</h1>
+<h1> So, I was able to get <b id = "numTweets">#</b> of <b id="author">this author's</b> tweets.</h1>
 			</div>
 
 			<div class="d-md-flex p-3 justify-content-center">
 				<!-- Ratings card --> 
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title"> <b id="pos">#</b> was/were rated as positive.</h5>
+						<h5 class="card-title"> <b id="pos">#</b> <span id="poswere">were</span> rated as <b style="color:green;">positive</b>.</h5>
 					</div>
 				</div>
 				<!-- Ratings card --> 
@@ -108,7 +122,7 @@ parseJSON();
 				<!-- Ratings card --> 
 				<div class="card">
 					<div class="card-body">
-					<h5 class="card-title"> <b id="neg">#</b> was/were rated as negative.</h5>
+					<h5 class="card-title"> <b id="neg">#</b> <span id="negwere">were</span> rated as <b style="color:red;">negative</b>.</h5>
 					</div>
 				</div>
 				<!-- Ratings card --> 
@@ -117,7 +131,7 @@ parseJSON();
 				<!-- Ratings card --> 
 				<div class="card">
 					<div class="card-body">
-					<h5 class="card-title"> <b id="neu">#</b> was/were rated as neutral.</h5>
+					<h5 class="card-title"> <b id="neu">#</b> <span id="neuwere">were</span> rated as <b style="color:blue;">neutral</b>.</h5>
 					</div>
 				</div>
 				<!-- Ratings card --> 
@@ -139,6 +153,5 @@ parseJSON();
 		<!-- Second Half -->
 		<!--===============================================================================-->
 	</div>
-	<!-- <script src='./assets/js/ajax.js'></script> -->
 	</body>
 </html>

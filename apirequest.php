@@ -28,7 +28,8 @@ if (isset($_POST['search'])) {
         if (!$twitter){
             throw new Exception ("Can't connect to Twitter's API."); 
             die();
-        }else{
+        }
+        else{
             return $twitter;
         }
     }
@@ -56,7 +57,22 @@ if (isset($_POST['search'])) {
     // The get method makes GET HTTP requests to Twitter's API
 
         $tweets=$twitter->get('statuses/user_timeline', ['tweet_mode'=>'extended','screen_name' => "$username", 'count' => $numtweets, "exclude_replies" => 1]);
-    // Store in JSON file
+    
+        if (empty($tweets)){
+            echo <<<EOT
+            <div class="d-md-flex p-3 justify-content-center">
+            <!-- Error card --> 
+            <div class="card">
+            <div class="card-body">
+            <h5 class="card-title"> C'mon, man.</h5>
+            <p>That's not a real Twitter handle. We both know that.</p>
+            </div>
+            </div>
+            <!-- Error card --> 
+            </div>
+            EOT; 
+        }
+        // Store in JSON file
 
     // Notice: As of 09/20/20
 

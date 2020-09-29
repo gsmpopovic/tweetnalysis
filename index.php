@@ -7,6 +7,51 @@
         <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
         <link href="./assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="./assets/css/bootstrap.css.map" rel="stylesheet" type="text/css" />
+
+        <script>
+            // AJAX error handling
+
+            function parseJSON (){
+                var file = "assets/json/analysis.json";
+
+                var request = new XMLHttpRequest();
+
+                try{
+                var request = new XMLHttpRequest();
+                }
+
+                catch(error1){
+                    try {
+                        var request = new ActiveXObject("Msxm12.XMLHTTP");
+                    }
+                    catch (error2){
+
+                        try {
+                        var request = new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+
+                        catch(error3){
+                            alert ("Whoops. Can't AJAX.")
+
+                        }
+                    }
+                }
+
+            request.onreadystatechange = function(){
+                
+                if (request.onreadystatechange==4){
+                    var json = JSON.parse(request.responseText);
+
+                    if (json == false){
+                    alert("C'mon, man. That's not a valid Twitter handle.");
+                    window.stop();
+			        }
+                }
+            }
+        }
+            document.getElementById("submit").addEventListener("click", parseJSON());
+            			
+        </script>
     </head>
     <body style="overflow-x:hidden;">
         <div class="container-fluid h-100">
