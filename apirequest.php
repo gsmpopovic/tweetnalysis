@@ -1,9 +1,4 @@
 <?php 
-
-// Start session 
-
-session_start();
-
 //Require TwitterOAuth library 
 
 require "twitteroauth/autoload.php";

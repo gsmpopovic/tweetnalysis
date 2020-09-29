@@ -8,7 +8,7 @@
         <link href="./assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="./assets/css/bootstrap.css.map" rel="stylesheet" type="text/css" />
     </head>
-    <body>
+    <body style="overflow-x:hidden;">
         <div class="container-fluid h-100">
             <div class="row h-15 mb-md-2">
                 <div class="col-md-12">
@@ -17,7 +17,7 @@
             </div>
             <div class="row" id="index-body">
                 <div class="col-md-6">
-                    <form action="display.php" method="POST" class="p-5 bg-primary rounded text-light">
+                    <form action="display.php" method="POST" class="p-5 rounded text-light" style="background:#35bdff;">
                         <div class="form-group">
                             <label for="searchbar-un" class="display-6"> 
                                 Enter a Twitter handle:
@@ -46,18 +46,29 @@
                     </form>
                 </div>
                 <div class="col-md-6">
-                <div class="col-md-9 h-40 my-md-2">
+                <div class="col-md-9 h-40">
                         <div class="card">
                             <div class="card-body">
-                                Tweetnalysis is a web application that retrieves tweets from a handle's timeline and analyzes their sentiment (the author's mood and attitude, as evidenced by their use of language). The PHP library is the work of David Oti, and can be found <a href="https://github.com/davmixcool/php-sentiment-analyzer">here</a>. The original project by C.J. Hutto et al. was written in Python, and can be found <a href="https://github.com/cjhutto/vaderSentiment">here</a>.
+                        <p> Tweetnalysis is a web application that retrieves tweets from a handle's timeline and analyzes their sentiment (the author's mood and attitude, as evidenced by their use of language). The PHP library is the work of David Oti, and can be found <a href="https://github.com/davmixcool/php-sentiment-analyzer">here</a>. The original project by C.J. Hutto et al. was written in Python, and can be found <a href="https://github.com/cjhutto/vaderSentiment">here</a>.
+</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 h-40">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>Sentiment analysis is performed using a VADER (Valence Aware Dictionary and SEntiment Reasoner) approach, where each tweet is decomposed into a string of words, and each word checked against against an entry in a lexicon. In this case, C.J. Hutto's lexicon lists the sentiment of common words as so rated by ten independent particpants, on a scale of +4 (exceedingly positive) to -4 (exceedingly negative).
+</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 h-40 my-md-2">
+
+                    <div class="col-md-9 h-40">
                         <div class="card">
                             <div class="card-body">
-                                Sentiment analysis is performed using a VADER (Valence Aware Dictionary and SEntiment Reasoner) approach, where each tweet is decomposed and each word checked against a lexicon that which lists the sentiment of common words--whether, positive (e.g., "good"), negative (e.g., "bad"), or neutral (i.e., no strong attitude indicated). Words are checked both for polarity (whether good or bad) and their intensity (how good or bad). The overall sentiment of each tweet is broken down into percentages based on these scores.
-                            </div>
+                            <p>The average of these ten ratings composes each category, whether, positive (e.g., "good"), negative (e.g., "bad"), or neutral (i.e., no strong attitude indicated) associated with each Words are checked both for <i>polarity</i> (whether good or bad) and their <i>intensity</i> (how good or bad). The overall sentiment of each tweet is broken down into percentages based on these scores.
+</p>
+                        </div>
                         </div>
                     </div>
                 </div>
