@@ -12,7 +12,7 @@
             // AJAX error handling
 
             function parseJSON (){
-                var file = "assets/json/analysis.json";
+                var file = "./process.php";
 
                 var request = new XMLHttpRequest();
 
@@ -41,15 +41,23 @@
                 
                 if (request.onreadystatechange==4){
                     var json = JSON.parse(request.responseText);
-
-                    if (json == false){
-                    alert("C'mon, man. That's not a valid Twitter handle.");
-                    window.stop();
-			        }
+                    console.log(json);
+                //     if (json == "fail"){
+                //     alert("C'mon, man. That's not a valid Twitter handle.");
+                //     event.preventDefault();
+                // }
                 }
             }
+
+            request.open("GET", file, true);
+            request.send();
+
         }
-            document.getElementById("submit").addEventListener("click", parseJSON());
+            var submit = document.getElementById("submit");
+
+            if (submit) {
+                submit.addEventListener("click", parseJSON());
+            }
             			
         </script>
     </head>
@@ -87,7 +95,7 @@
                         </div>
                         <div class="form-group">
                             <input type="submit" name="search" class="btn btn-secondary" id="submit" />
-                        </div>
+                    </div>
                     </form>
                 </div>
                 <div class="col-md-6">

@@ -50,7 +50,7 @@ foreach($tweets as $k => $v){
 	<div class="card-header">
 	<div>
 	<h6>Rating:</h6>
-	<p>Positive sentiment: <b>$pos%</b> - Neutral sentiment: <b>$neu%</b> - Negative sentiment: <b>$neg%</b> - Compound sentiment: <b>$compound%</b>.</p> 
+	<p><b style="color:green;">Positive</b> sentiment: <b>$pos%</b> - <b style="color:red;">Negative</b> sentiment: <b>$neg%</b>- <b style="color:blue;">Neutral</b> sentiment: <b>$neu%</b></p> 
 	<p>$overall</p>
 	</div>  
 </div>
