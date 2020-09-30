@@ -12,14 +12,17 @@ require_once('sentiment.php');
 
 $tweets=$json; 
 
-// if(isset($tweets)){
-// 	print_r($tweets);
+if(isset($tweets)){
+	print_r($tweets);
 
-// }
+}
 
-// else{
-// 	echo "nothing's here";
-// }
+else{
+	echo "nothing's here";
+}
+
+echo "Something";
+
 // For reference, an entry in our JSON file looks like this: 
 
 // "0": {
