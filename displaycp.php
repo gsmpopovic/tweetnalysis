@@ -261,7 +261,7 @@ $json = new stdClass();
 
         $json2 = json_encode($json); 
 
-        file_put_contents('./assets/json/analysis.json', $json); 
+        file_put_contents('./assets/json/analysis.json', $json2); 
 
         // echo "abc";
 
