@@ -1,6 +1,5 @@
 <?php 
 
-echo "xyz";
 // Load our Twitter API response
 
 require_once('apirequest.php');
@@ -113,5 +112,6 @@ $json = new stdClass();
 
         file_put_contents('./assets/json/analysis.json', $json2); 
 
-    
+        echo "abc";
+
 ?>
