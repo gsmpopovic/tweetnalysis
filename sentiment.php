@@ -1,5 +1,6 @@
 <?php 
 
+echo "xyz";
 // Load our Twitter API response
 
 require_once('apirequest.php');

@@ -145,7 +145,6 @@ parseJSON();
 			<div class="d-md-flex h-100 text-center justify-content-center">
 				<div class="logoarea py-5">
 					<!-- Tweet cards -->
-				<?php echo "hi"; ?>
 				<?php require_once('dynamichtml.php');?>
 					<!-- Tweet cards -->
 				</div>
