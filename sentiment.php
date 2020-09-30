@@ -29,7 +29,7 @@ $json = new stdClass();
 // this data consist of twitter_datas containing all information 
 // relevant to a tweet 
 
-echo "start of loop";
+// echo "start of loop";
 
     foreach($twitter_data as $k => $v){
 
@@ -98,7 +98,7 @@ echo "start of loop";
         else if ($tweet->pos > $tweet->neg){
             $tweet->overall .= "positive.";
         }
-        echo "end of conditional";
+        // echo "end of conditional";
 
         // Cast index of our loop to string
         // in order to index our JSON 
@@ -108,7 +108,7 @@ echo "start of loop";
         $json->$key=$tweet; 
 
     }
-echo "end of loop";
+// echo "end of loop";
 
         // Encode this and set it back into our JSON file 
 
@@ -116,6 +116,6 @@ echo "end of loop";
 
         file_put_contents('./assets/json/analysis.json', $json2); 
 
-        echo "abc";
+        // echo "abc";
 
 ?>
