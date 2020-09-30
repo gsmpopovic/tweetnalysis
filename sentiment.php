@@ -108,9 +108,9 @@ $json = new stdClass();
 
         // Encode this and set it back into our JSON file 
 
-        $json = json_encode($json); 
+        $json2 = json_encode($json); 
 
-        file_put_contents('./assets/json/analysis.json', $json); 
+        file_put_contents('./assets/json/analysis.json', $json2); 
 
     
 ?>

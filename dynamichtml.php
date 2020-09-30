@@ -6,9 +6,11 @@ require_once('sentiment.php');
 
 // $json = file_get_contents("assets/json/analysis.json");
 
-$json = file_get_contents("https://tweetnalysis.herokuapp.com/assets/json/analysis.json");
+// $json = file_get_contents("https://tweetnalysis.herokuapp.com/assets/json/analysis.json");
 
-$tweets=json_decode($json);
+// $tweets=json_decode($json);
+
+$tweets=$json; 
 
 // if(isset($tweets)){
 // 	print_r($tweets);
