@@ -261,7 +261,7 @@ $json = new stdClass();
 
         $json2 = json_encode($json); 
 
-        file_put_contents('./assets/json/analysis.json', $json2); 
+        file_put_contents('./assets/json/analysis.json', $json); 
 
         // echo "abc";
 
@@ -273,7 +273,7 @@ $json = new stdClass();
 
 // $tweets=json_decode($json);
 
-$tweets=$json; 
+$tweets=json_decode($json2); 
 
 // if(isset($tweets)){
 // 	print_r($tweets);
