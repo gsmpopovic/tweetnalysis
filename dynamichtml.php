@@ -8,8 +8,14 @@ $json = file_get_contents("assets/json/analysis.json");
 
 $tweets=json_decode($json);
 
-print_r($tweets);
+if(isset($tweets)){
+	print_r($tweets);
 
+}
+
+else{
+	echo "nothing's here";
+}
 // For reference, an entry in our JSON file looks like this: 
 
 // "0": {
