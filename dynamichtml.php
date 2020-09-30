@@ -8,6 +8,8 @@ $json = file_get_contents("assets/json/analysis.json");
 
 $tweets=json_decode($json);
 
+print_r($tweets);
+
 // For reference, an entry in our JSON file looks like this: 
 
 // "0": {
