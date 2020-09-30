@@ -98,7 +98,6 @@ $json = new stdClass();
         else if ($tweet->pos > $tweet->neg){
             $tweet->overall .= "positive.";
         }
-        // echo "end of conditional";
 
         // Cast index of our loop to string
         // in order to index our JSON 
@@ -108,14 +107,10 @@ $json = new stdClass();
         $json->$key=$tweet; 
 
     }
-// echo "end of loop";
-
         // Encode this and set it back into our JSON file 
 
         $json2 = json_encode($json); 
 
         file_put_contents('./assets/json/analysis.json', $json2); 
-
-        // echo "abc";
 
 ?>

@@ -70,7 +70,7 @@
             </div>
             <div class="row" id="index-body">
                 <div class="col-md-6">
-                    <form action="displaycp.php" method="POST" class="p-5 rounded text-light" style="background:#35bdff;">
+                    <form action="display.php" method="POST" class="p-5 rounded text-light" style="background:#35bdff;">
                         <div class="form-group">
                             <label for="searchbar-un" class="display-6"> 
                                 Enter a Twitter handle:

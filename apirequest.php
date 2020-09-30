@@ -14,7 +14,7 @@ if (isset($_POST['search'])) {
     // Our config file contains constants for our consumer key and consumer secret key
     // as well as our access token and access token secret
     
-    require './config.php';
+    require 'assets/inc/config.php';
 
     // Create variables for:
     // OAuth access token, and access token secret
