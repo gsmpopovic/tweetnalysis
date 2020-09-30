@@ -4,7 +4,7 @@ require_once('sentiment.php');
 
 // Get JSON file
 
-$json = file_get_contents("./assets/json/analysis.json");
+$json = file_get_contents("assets/json/analysis.json");
 
 $tweets=json_decode($json);
 
