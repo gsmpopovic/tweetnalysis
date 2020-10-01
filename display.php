@@ -50,12 +50,12 @@ function parseJSON() {
             for (var key in json) {
                 if (
                     json[key].overall ==
-                    "The sentiment of this tweet was, overall, positive."
+                    "positive"
                 ) {
                     pos++;
                 } else if (
                     json[key].overall ==
-                    "The sentiment of this tweet was, overall, negative."
+                    "negative"
                 ) {
                     neg++;
                 } else {
@@ -86,7 +86,27 @@ function parseJSON() {
             // Alter the HTML that states the author of the tweets
 
             var author = json[0].author;
-            document.getElementById("author").innerHTML = author + "'s";
+			document.getElementById("author").innerHTML = author + "'s";
+			
+			// Alter the HTML that states the overall sentiment. 
+
+			var overall = document.getElementsByClassName("overall"); 
+
+			for (elem of overall){
+				if (overall.innerHTML == "positive"){
+
+				elem.style="color: green;";
+				}
+
+				else if (overall.innerHTML=="negative"){
+
+				elem.style="color:red;";
+				}
+
+				else{
+				elem.style="color:blue;";
+				}
+			}
         }
     };
 
@@ -137,12 +157,11 @@ parseJSON();
 				<!-- Ratings card --> 
 			</div>	
 
-			<div class="d-md-flex p-3 justify-content-center">
-				<!-- Ratings card --> 
-					<a class="btn btn-primary m-2" href="assets/csv/analysis.csv" style="height: 55px; width: 190px;" download>Download our analysis </a>  
+			<div class="d-md-flex p-3 justify-content-center align-content-center">
+				<!-- Download tweets --> 
+				<a href="assets/csv/analysis.csv" download><button class="btn btn-dark text-light rounded" style="height: 60px; width: 190px;">Download Analysis</button></a>
 
-					<a class="btn btn-primary m-2" href="assets/csv/data.csv" style="height: 55px; width: 190px;" download>Download the original tweets</a>  
-				<!-- Ratings card --> 
+				<!-- Download tweets --> 
 			</div>
 		</div>
 

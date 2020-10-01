@@ -89,14 +89,14 @@ $json = new stdClass();
         // Overall sentiment 
         
         if (($tweet->neu > $tweet->neg) && ($tweet->neu > $tweet->pos)){
-            $tweet->overall .= "neutral.";
+            $tweet->overall = "neutral";
         }
         else if ($tweet->neg > $tweet->pos){
-            $tweet->overall .= "negative.";
+            $tweet->overall = "negative";
         }
 
         else if ($tweet->pos > $tweet->neg){
-            $tweet->overall .= "positive.";
+            $tweet->overall = "positive";
         }
 
         // Cast index of our loop to string
@@ -119,6 +119,5 @@ $json = new stdClass();
         // $column = array_keys($row);
 
         jsonToCSV("./assets/json/analysis.json", "./assets/csv/analysis.csv");
-        jsonToCSV("./assets/json/data.json", "./assets/csv/data.csv");
 
 ?>
