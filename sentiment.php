@@ -118,6 +118,7 @@ $json = new stdClass();
         // $row = get_object_vars($tweet);
         // $column = array_keys($row);
 
-        jsonToCSV("./assets/json/analysis.json", "./assets/json/analysis.csv");
+        jsonToCSV("./assets/json/analysis.json", "./assets/csv/analysis.csv");
+        jsonToCSV("./assets/json/data.json", "./assets/csv/data.csv");
 
 ?>
