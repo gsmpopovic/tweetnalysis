@@ -135,7 +135,15 @@ parseJSON();
 					</div>
 				</div>
 				<!-- Ratings card --> 
-			</div>		
+			</div>	
+
+			<div class="d-md-flex p-3 justify-content-center">
+				<!-- Ratings card --> 
+					<a class="btn btn-primary m-2" href="assets/json/analysis.csv" style="height: 55px; width: 190px;" download>Download our analysis </a>  
+
+					<a class="btn btn-primary m-2" href="assets/json/data.json" style="height: 55px; width: 190px;" download>Download the original tweets</a>  
+				<!-- Ratings card --> 
+			</div>
 		</div>
 
 		<!-- First Half -->

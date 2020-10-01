@@ -2,7 +2,9 @@
 
 require_once('sentiment.php');
 
-// Get JSON file
+// Get JSON file which contains the result of our 
+// 1. straining info from Twitter's API response
+// 2. performing sentiment analysis on that info 
 
 $tweets=json_decode(file_get_contents('assets/json/analysis.json')); 
 

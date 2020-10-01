@@ -79,9 +79,11 @@ if (isset($_POST['search'])) {
     // Data stored in JSON file is only meant to persist as long as the user's query.
     // i.e., every time the user submits a query, the former file will be erased.
 
+    // Use session variables to create different files per user experience? 
+
     $json = json_encode($tweets);
 
-    file_put_contents("./assets/json/data.json", $json);}
+    file_put_contents("assets/json/data.json", $json);}
  
     // if i decide to have the data persist beyond the user's initial query 
 

@@ -113,4 +113,11 @@ $json = new stdClass();
 
         file_put_contents('./assets/json/analysis.json', $json2); 
 
+        // CSV processing 
+
+        // $row = get_object_vars($tweet);
+        // $column = array_keys($row);
+
+        jsonToCSV("./assets/json/analysis.json", "./assets/json/analysis.csv");
+
 ?>

@@ -1,5 +1,8 @@
 <?php 
 
+// CLASSES 
+
+
 // The class TweetAnalyzed is intended to represent each tweet 
 // after it has been processed using a VADER sentiment analysis library
 // i.e., as found in composer/davmixcool/php-sentiment-analyzer
@@ -40,4 +43,33 @@ class TweetAnalyzed {
 
 }
 
+// FUNCTIONS 
+
+
+function jsonToCSV($jsonpath, $csvpath)
+{
+    $js = file_get_contents($jsonpath);
+
+    if ($js == false)
+        die('Error reading json file...');
+
+    $data = json_decode($js, true);
+
+    $fp = fopen($csvpath, 'w');
+    
+    $header = false;
+    
+    foreach ($data as $row)
+    {
+        if (empty($header))
+        {
+            $header = array_keys($row);
+            fputcsv($fp, $header);
+            $header = array_flip($header);
+        }
+        fputcsv($fp, array_merge($header, $row));
+    }
+    fclose($fp);
+    return;
+}
 ?>
