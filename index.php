@@ -55,8 +55,8 @@
             }
         </script>
     </head>
-    <body style="overflow-x: hidden;">
-        <div class="container-fluid h-100">
+    <body class="container-fluid h-100" style="overflow-x: hidden;">
+        <div>
             <div class="row h-15 mb-md-2">
                 <div class="col-md-12">
                     <h1 class="h1 display-2" style="text-align: center;">Tweetnalysis</h1>
@@ -101,8 +101,11 @@
                                     the work of David Oti, and can be found <a href="https://github.com/davmixcool/php-sentiment-analyzer" target="_blank">here</a>. The original project by C.J. Hutto et al. was written in Python, and can be found
                                     <a href="https://github.com/cjhutto/vaderSentiment" target="_blank";>here</a>.
                                 </p>
-                                <button type="button" class="d-flex btn btn-primary" data-toggle="modal" data-target="#readMoreModal" style="background: #35bdff;">
-                                Read More
+                                <button type="button" class="d-flex btn btn-primary mb-3" data-toggle="modal" data-target="#readMoreModal" style="background: #35bdff;">
+                               Analysis? 
+                                </button>
+                                <button type="button" class="d-flex btn btn-primary mt-3" data-toggle="modal" data-target="#readMoreModal2" style="background: #35bdff;">
+                                Ratings?
                                 </button>
                             </div>
                         </div>
@@ -112,10 +115,10 @@
         </div>
         <!-- Modal -->
         <div class="modal fade" id="readMoreModal" tabindex="-1" role="dialog" aria-labelledby="readMoreModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog" role="document" style="width: 350px; height: 350px;">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="readMoreModalLabel">VADER Analysis and Ratings</h5>
+                        <h5 class="modal-title" id="readMoreModalLabel">How does the analysis work?</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -130,7 +133,25 @@
                                     </p>
                                 </div>
                             </div>
-
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="readMoreModal2" tabindex="-1" role="dialog" aria-labelledby="readMoreModal2Label" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="width: 350px; height: 350px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="readMoreModal2Label">What do the ratings mean?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
                             <div class="card">
                                 <div class="card-body">
                                     <p>
