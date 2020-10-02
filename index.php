@@ -59,7 +59,7 @@
         <div>
             <div class="row h-15 mb-md-2">
                 <div class="col-md-12">
-                    <h1 class="h1 display-2" style="text-align: center;">Tweetnalysis</h1>
+                    <h1 class="h1 display-2" style="text-align: center;">Twhat?</h1>
                 </div>
             </div>
             <div class="row" id="index-body">
@@ -97,7 +97,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <p>
-                                    Tweetnalysis is a web application that retrieves tweets from a handle's timeline and analyzes their sentiment (the author's mood and attitude, as evidenced by their use of language). The PHP library is
+                                    Twhat? is a web application that retrieves tweets from a handle's timeline and analyzes their sentiment (the author's mood and attitude, as evidenced by their use of language). The PHP library is
                                     the work of David Oti, and can be found <a href="https://github.com/davmixcool/php-sentiment-analyzer" target="_blank">here</a>. The original project by C.J. Hutto et al. was written in Python, and can be found
                                     <a href="https://github.com/cjhutto/vaderSentiment" target="_blank";>here</a>.
                                 </p>
