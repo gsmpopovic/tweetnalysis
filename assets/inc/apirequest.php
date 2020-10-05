@@ -71,5 +71,7 @@ if (isset($_POST['search'])) {
 
     // Output will be from JSON file herein created.
 
-    require_once('assets/inc/inpsql.php');
+    $tweets = json_decode($tweets); 
+    
+    require_once('inpsql.php');
 }?>
