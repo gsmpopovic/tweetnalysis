@@ -65,13 +65,15 @@ if (isset($_POST['search'])) {
 
     // Use session variables to create different files per user experience?
 
-    // $json = json_encode($tweets);
+    $json = json_encode($tweets);
 
-    // file_put_contents("assets/json/data.json", $json);}
+    file_put_contents("assets/json/data.json", $json);
 
     // Output will be from JSON file herein created.
 
-    $tweets = json_decode($tweets); 
-    
-    require_once('inpsql.php');
+    // Postgres functionality 
+
+    // $tweets = json_decode($tweets); 
+
+    // require_once('inpsql.php');
 }?>

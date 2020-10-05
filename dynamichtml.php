@@ -2,8 +2,6 @@
 
 require_once('sentiment.php');
 
-$result = pg_query($connection, "SELECT * FROM tweets");
-
 // Get JSON file which contains the result of our 
 // 1. straining info from Twitter's API response
 // 2. performing sentiment analysis on that info 
@@ -26,20 +24,12 @@ $result = pg_query($connection, "SELECT * FROM tweets");
 // 	"overall": null
 // }
 
-// foreach($tweets as $k => $v){
-while ($row = pg_fetch_row($result)){
-
-	$location = $row[1];
-	$created = $row[2];
+foreach($tweets as $k => $v){
+	$created = $tweets->$k->created_at;
+	$location = $tweets->$k->location; 
 	$handle = $tweets->$k->handle; 
 	$text = $tweets->$k->tweet;
-	$author = $row[0];
-
-	// $created = $tweets->$k->created_at;
-	// $location = $tweets->$k->location; 
-	// $handle = $tweets->$k->handle; 
-	// $text = $tweets->$k->tweet;
-	// $author = $tweets->$k->author;
+	$author = $tweets->$k->author;
 
 	$pos = $tweets->$k->pos;
 	$neg = $tweets->$k->neg;
