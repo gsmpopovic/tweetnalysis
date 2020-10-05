@@ -6,8 +6,7 @@ require_once('sentiment.php');
 // 1. straining info from Twitter's API response
 // 2. performing sentiment analysis on that info 
 
-
-// $tweets=json_decode(file_get_contents('assets/json/analysis.json')); 
+$tweets=json_decode(file_get_contents('assets/json/analysis.json')); 
 
 // For reference, an entry in our JSON file looks like this: 
 
@@ -25,6 +24,7 @@ require_once('sentiment.php');
 // }
 
 foreach($tweets as $k => $v){
+
 	$created = $tweets->$k->created_at;
 	$location = $tweets->$k->location; 
 	$handle = $tweets->$k->handle; 
