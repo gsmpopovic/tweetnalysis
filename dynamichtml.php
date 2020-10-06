@@ -66,5 +66,3 @@ foreach($tweets as $k => $v){
 </div>
 EOT;
 }
-
-?>
