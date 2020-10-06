@@ -1,7 +1,7 @@
 <?php 
 //Require TwitterOAuth library 
 
-require_once ("twitteroauth/autoload.php");
+require_once ("twitteroauth2/autoload.php");
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
